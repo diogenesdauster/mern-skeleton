@@ -6,6 +6,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import Template from "./../template";
 import authRoutes from './routes/auth.routes'
+import userRoutes from "./routes/user.routes";
 
 const app = express()
 
@@ -23,6 +24,7 @@ app.use((err, req, res, next) => {
   }
 })
 
+app.use('/',userRoutes)
 app.use('/',authRoutes)
 
 app.get("/",(req, res) => {
