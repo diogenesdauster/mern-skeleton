@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import crypto from 'crypto'
 
 // Schema
 const UserSchema = new mongoose.Schema({
@@ -45,7 +46,9 @@ UserSchema.methods = {
     return this.encryptPassword(plainText) == this.hashed_password
   },
   encryptPassword: function(password){
-    if(!password) return ''
+    if(!password){
+      return ''
+    }
     try{
       return crypto
       .createHmac('sha1',this.salt)
