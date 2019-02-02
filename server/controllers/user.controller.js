@@ -29,7 +29,7 @@ const list = (req, res, next) => {
 const userByID = (req, res, next, id) =>{
   User.findById(id).exec((err, user) => {
     if(err || !user){
-      return res.status('400').json({
+      return res.status(400).json({
         error: "User not found"
       })
     }

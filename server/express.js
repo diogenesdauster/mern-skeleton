@@ -15,6 +15,14 @@ app.use(cookieParser())
 app.use(compress())
 app.use(helmet())
 app.use(cors())
+
+app.use((err, req, res, next) => {
+  if(err.name == "UnauthorizedError"){
+    res.status(401).json({"error" : err.name + ": " +
+     err.message})
+  }
+})
+
 app.use('/',authRoutes)
 
 app.get("/",(req, res) => {

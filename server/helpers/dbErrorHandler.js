@@ -28,9 +28,9 @@ const getUniqueErrorMessage = (err) =>{
     err.message.lastIndexOf('_1'))
     output = fieldName.charAt(0).toUpperCase() + fieldName.slice(1) +
     'already exsists'
-    } catch(ex){
+  } catch(ex){
       output = 'Unique field already exists'
-    }
+  }
 }
 
 export default {getErrorMessage,getUniqueErrorMessage}
