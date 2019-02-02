@@ -3,7 +3,19 @@ import _ from 'lodash'
 import errorHandler from './error.controller'
 
 
-const create = (req, res, next) => {}
+const create = (req, res, next) => {
+  const user = new User(req.body)
+  user.save((err, result) => {
+    if (err){
+      return res.status(400).json({
+        error: errorHandler.getErrorMessage(err)
+      })
+    }
+    res.status(200).json({
+      message: "Successfully signed up!"
+    })
+  })
+}
 const list = (req, res, next) => {}
 const userByID = (req, res, next, id) =>{}
 const read = (req, res) => {}
