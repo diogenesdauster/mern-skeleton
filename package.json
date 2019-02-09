@@ -2,9 +2,11 @@
   "name": "mern-skeleton-backend",
   "version": "1.0.0",
   "description": "mern-skeleton-backend",
-  "main": "",
+  "main": "./dist/server.generated.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
+    "start": "NODE_ENV=production node ./dist/server.generated.js",
     "development": "nodemon"
   },
   "repository": {
@@ -56,8 +58,11 @@
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.4.9",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-hot-loader": "^4.6.5"
+    "react-hot-loader": "^4.6.5",
+    "react-jss": "^8.6.1",
+    "react-router-dom": "^4.3.1"
   }
 }
