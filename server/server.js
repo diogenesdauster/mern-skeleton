@@ -2,8 +2,10 @@ import config from './../config/config'
 import app from './express'
 import mongoose from 'mongoose'
 
+const opts = { useNewUrlParser: true };
+
 mongoose.Promise = global.Promise
-mongoose.connect(config.mongoUri)
+mongoose.connect(config.mongoUri, opts)
 
 mongoose.connection.on('error',()=>{
   throw new Error(`unable to connect to database: ${config.mongoUri}`)
