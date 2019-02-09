@@ -88,7 +88,7 @@ class Signup extends Component {
           }
         </CardContent>
         <CardActions>
-          <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
+          <Button color="primary" variant="contained" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
         </CardActions>
       </Card>
       <Dialog open={this.state.open} disableBackdropClick={true}>
@@ -100,7 +100,7 @@ class Signup extends Component {
         </DialogContent>
         <DialogActions>
           <Link to="/signin">
-            <Button color="primary" autoFocus="autoFocus" variant="raised">
+            <Button color="primary" autoFocus="autoFocus" variant="contained">
               Sign In
             </Button>
           </Link>
