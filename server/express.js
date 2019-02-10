@@ -78,15 +78,14 @@ app.get('*', (req, res) => {
   const markup = ReactDOMServer.renderToString(
 
     <StaticRouter location={req.url} context={context}>
-    <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
-       <MuiThemeProvider theme={theme} sheetsManager={new Map()}>
-         <MainRouter/>
-       </MuiThemeProvider>
-    </JssProvider>
- </StaticRouter>
-
-
+      <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
+        <MuiThemeProvider theme={theme} sheetsManager={new Map()}>
+          <MainRouter/>
+        </MuiThemeProvider>
+      </JssProvider>
+    </StaticRouter>
   )
+
    if (context.url) {
      return res.redirect(303, context.url)
    }
